@@ -1,0 +1,8 @@
+{
+  "name": "generator-phaser-coffeescript",
+  "version": "0.0.0",
+  "dependencies": {
+    "phaser-official": "^2.3.0"
+  }
+}
+
