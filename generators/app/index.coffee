@@ -2,10 +2,16 @@ path        = require 'path'
 chalk       = require 'chalk'
 yosay       = require 'yosay'
 generators  = require 'yeoman-generator'
+_s          = require 'underscore.string'
 
 module.exports = generators.Base.extend
 
   initializing : ->
+
+
+  install : ->
+
+    @installDependencies()
 
 
   prompting : ->
@@ -20,25 +26,31 @@ module.exports = generators.Base.extend
       {
         type: 'input'
         name: 'appName'
-        message: 'Your app name?'
+        message: 'Enter your app name'
         default : this.appname
       }
       {
         type: 'input'
         name: 'appWidth'
-        message: 'Your app width?'
+        message: 'Enter desired canvas width'
         default : 640
       }
       {
         type: 'input'
         name: 'appHeight'
-        message: 'Your app height?'
+        message: 'Enter desired canvas height'
         default : 480
       }
+      {
+        type: 'input'
+        name: 'phaserVersion'
+        message: 'Which Phaser version do you want to use?'
+        default : '^2.4.2'
+      }
     ], (props) =>
+      props.appName = _s.slugify props.appName
       @props = props
       done()
-
 
 
   configuring : ->
@@ -52,15 +64,15 @@ module.exports = generators.Base.extend
     app : ->
       @fs.copyTpl(
         @templatePath('_index.html'), @destinationPath('app/index.html'),
-        { appName: @props.appName }
+        { appName : @props.appName }
       )
 
       @fs.copy @templatePath('assets/**'),                     @destinationPath('app/assets')
       @fs.copy @templatePath('styles/**'),                     @destinationPath('app/styles')
-      @fs.copy @templatePath('scripts/states/boot.coffee'),    @destinationPath('app/scripts/boot.coffee')
-      @fs.copy @templatePath('scripts/states/menu.coffee'),    @destinationPath('app/scripts/menu.coffee')
-      @fs.copy @templatePath('scripts/states/main.coffee'),    @destinationPath('app/scripts/main.coffee')
-      @fs.copy @templatePath('scripts/states/preload.coffee'), @destinationPath('app/scripts/preload.coffee')
+      @fs.copy @templatePath('scripts/states/boot.coffee'),    @destinationPath('app/scripts/states/boot.coffee')
+      @fs.copy @templatePath('scripts/states/menu.coffee'),    @destinationPath('app/scripts/states/menu.coffee')
+      @fs.copy @templatePath('scripts/states/main.coffee'),    @destinationPath('app/scripts/states/main.coffee')
+      @fs.copy @templatePath('scripts/states/preload.coffee'), @destinationPath('app/scripts/states/preload.coffee')
 
       @fs.copyTpl(
         @templatePath('scripts/game.coffee'), @destinationPath('app/scripts/game.coffee'),
@@ -69,15 +81,18 @@ module.exports = generators.Base.extend
 
     bower : ->
 
-      @fs.copy @templatePath('_bower.json'), @destinationPath('bower.json')
       @fs.copy @templatePath('bowerrc'),     @destinationPath('.bowerrc')
+      @fs.copyTpl(
+        @templatePath('_bower.json'), @destinationPath('bower.json'),
+        { phaserVersion : @props.phaserVersion }
+      )
 
 
     npm : ->
 
       @fs.copyTpl(
         @templatePath('_package.json'), @destinationPath('package.json'),
-        { appName: @props.appName }
+        { appName : @props.appName }
       )
 
 
@@ -86,12 +101,8 @@ module.exports = generators.Base.extend
       @fs.copy @templatePath('_gulpfile.coffee'), @destinationPath('gulpfile.coffee')
 
 
-  install : ->
-
-    @installDependencies()
-
-
   end : ->
 
+    @log 'Yeoman completed his mission successfully!'
 
 
