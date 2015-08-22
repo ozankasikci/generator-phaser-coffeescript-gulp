@@ -34,8 +34,12 @@
     "del": "^1.2.0",
     "gulp-coffeeify": "^0.1.8",
     "gulp-load-plugins": "^0.10.0",
+    "gulp-rename": "^1.2.2",
     "gulp-size": "^1.2.1",
+    "gulp-sourcemaps": "^1.5.2",
     "main-bower-files": "^2.8.0",
-    "mocha": "*"
+    "mocha": "*",
+    "vinyl-buffer": "^1.0.0",
+    "vinyl-source-stream": "^1.1.0"
   }
 }
