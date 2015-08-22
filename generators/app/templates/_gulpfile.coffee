@@ -50,16 +50,6 @@ gulp.task 'watchChanges', ->
   watchFiles "#{paths.appScripts}/**/*.coffee", 'coffeeify'
 
 
-gulp.task 'copyPhaserFiles', ->
-
-  gulp
-    .src([
-      "#{paths.appLib}/phaser-official/build/phaser.min.js",
-      "#{paths.appLib}/phaser-official/build/phaser.map"
-    ])
-    .pipe gulp.dest paths.buildLib
-
-
 gulp.task 'copyHtml', ->
 
   gulp
@@ -103,7 +93,7 @@ gulp.task 'browserSync', ['build'], ->
       baseDir: paths.buildDir
 
 
-gulp.task 'build', ['copyPhaserFiles', 'coffeeify', 'copyHtml', 'copyStyles', 'copyAssets', 'watchChanges'], ->
+gulp.task 'build', ['coffeeify', 'copyHtml', 'copyStyles', 'copyAssets', 'watchChanges'], ->
 
   gulp
     .src "#{paths.buildDir}/**/*"
