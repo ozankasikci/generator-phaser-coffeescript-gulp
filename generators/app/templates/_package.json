@@ -1,6 +1,17 @@
 {
   "name": "package",
   "version": "0.0.0",
+  "browserify": {
+    "transform": [
+      "browserify-shim"
+    ]
+  },
+  "browser": {
+    "phaser": "./build/lib/phaser.min.js"
+  },
+  "browserify-shim": {
+    "phaser": "Phaser"
+  },
   "dependencies": {
     "chalk": "1.0.0",
     "coffee-script": "^1.9.3",
@@ -17,7 +28,11 @@
     "gulp-size": "^1.2.1",
     "gulp-coffeeify": "^0.1.8",
     "gulp-load-plugins": "0.10.0",
+    "gulp-sourcemaps": "^1.5.2",
+    "gulp-rename": "^1.2.2",
     "main-bower-files": "^2.8.0",
-    "mocha": "*"
+    "mocha": "*",
+    "vinyl-buffer": "^1.0.0",
+    "vinyl-source-stream": "^1.1.0"
   }
 }
