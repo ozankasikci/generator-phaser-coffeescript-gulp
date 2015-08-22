@@ -31,6 +31,12 @@ module.exports = generators.Base.extend
       }
       {
         type: 'input'
+        name: 'phaserVersion'
+        message: 'Which Phaser version do you want to use?'
+        default : '^2.4.2'
+      }
+      {
+        type: 'input'
         name: 'appWidth'
         message: 'Enter desired canvas width'
         default : 640
@@ -42,10 +48,10 @@ module.exports = generators.Base.extend
         default : 480
       }
       {
-        type: 'input'
-        name: 'phaserVersion'
-        message: 'Which Phaser version do you want to use?'
-        default : '^2.4.2'
+        type: 'confirm'
+        name: 'centerApp'
+        message: 'Would you like canvas to be centered?'
+        default : false
       }
     ], (props) =>
       props.appName = _s.slugify props.appName
@@ -67,8 +73,12 @@ module.exports = generators.Base.extend
         { appName : @props.appName }
       )
 
+      @fs.copyTpl(
+        @templatePath('styles/style.css'), @destinationPath('app/styles/style.css'),
+        { centerApp : @props.centerApp, appWidth : @props.appWidth }
+      )
+
       @fs.copy @templatePath('assets/**'),                     @destinationPath('app/assets')
-      @fs.copy @templatePath('styles/**'),                     @destinationPath('app/styles')
       @fs.copy @templatePath('scripts/states/boot.coffee'),    @destinationPath('app/scripts/states/boot.coffee')
       @fs.copy @templatePath('scripts/states/menu.coffee'),    @destinationPath('app/scripts/states/menu.coffee')
       @fs.copy @templatePath('scripts/states/main.coffee'),    @destinationPath('app/scripts/states/main.coffee')
@@ -103,6 +113,7 @@ module.exports = generators.Base.extend
 
   end : ->
 
-    @log 'Yeoman completed his mission successfully!'
+    @log chalk.green('Yeoman has completed his mission successfully!')
+    @log chalk.gray('Type `gulp` to start developing some awesome games!')
 
 
