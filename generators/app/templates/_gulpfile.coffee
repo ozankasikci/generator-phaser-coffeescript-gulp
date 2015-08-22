@@ -6,7 +6,6 @@ buffer         = require 'vinyl-buffer'
 plugins        = require('gulp-load-plugins')()
 browserify     = require 'browserify'
 browserSync    = require 'browser-sync'
-mainBowerFiles = require 'main-bower-files'
 
 
 paths =
@@ -35,6 +34,7 @@ gulp.task 'watchChanges', ->
     return  unless event is 'deleted'
     # replacing app folder with build
     path = path.replace '/app/', '/build/'
+    # deleting the file from build directory
     del [path], ->
 
 
@@ -83,13 +83,13 @@ gulp.task 'copyStyles', ->
 
 gulp.task 'coffeeify', ->
 
-  bundledStream = browserify.bundle()
+  b = browserify
     entries    : "#{paths.appScripts}/game.coffee"
     debug      : on
     transform  : ['coffeeify']
     extensions : ['.coffee']
 
-  bundledStream
+  b.bundle()
     .pipe source "#{paths.appScripts}/game.coffee"
     .pipe buffer()
     .pipe plugins.rename 'game.js'
@@ -103,13 +103,16 @@ gulp.task 'browserSync', ['build'], ->
       baseDir: paths.buildDir
 
 
-gulp.task 'build', ['copyPhaserFiles', 'coffeeify', 'copyHtml', 'copyAssets', 'watchChanges'], ->
+gulp.task 'build', ['copyPhaserFiles', 'coffeeify', 'copyHtml', 'copyStyles', 'copyAssets', 'watchChanges'], ->
 
   gulp
     .src "#{paths.buildDir}/**/*"
     .pipe plugins.size
       title : 'build'
-      gzip  : true
+      gzip  : off
+    .pipe plugins.size
+      title : 'build'
+      gzip  : on
 
 
 gulp.task 'default', ['clean'], ->
