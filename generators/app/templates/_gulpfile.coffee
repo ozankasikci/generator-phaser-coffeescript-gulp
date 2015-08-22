@@ -1,7 +1,10 @@
 del            = require 'del'
 gulp           = require 'gulp'
-watch          = require 'gulp-watch';
+watch          = require 'gulp-watch'
+source         = require 'vinyl-source-stream'
+buffer         = require 'vinyl-buffer'
 plugins        = require('gulp-load-plugins')()
+browserify     = require 'browserify'
 browserSync    = require 'browser-sync'
 mainBowerFiles = require 'main-bower-files'
 
@@ -34,7 +37,9 @@ gulp.task 'watchChanges', ->
     path = path.replace '/app/', '/build/'
     del [path], ->
 
+
   watchFiles = (path, gulpTask) ->
+
     gulp.watch [path], (file) ->
       gulp.start gulpTask
       deleteFileFromBuildDir file.type, file.path
@@ -78,9 +83,16 @@ gulp.task 'copyStyles', ->
 
 gulp.task 'coffeeify', ->
 
-  gulp
-    .src "#{paths.appScripts}/**/*.coffee"
-    .pipe plugins.coffeeify()
+  bundledStream = browserify.bundle()
+    entries    : "#{paths.appScripts}/game.coffee"
+    debug      : on
+    transform  : ['coffeeify']
+    extensions : ['.coffee']
+
+  bundledStream
+    .pipe source "#{paths.appScripts}/game.coffee"
+    .pipe buffer()
+    .pipe plugins.rename 'game.js'
     .pipe gulp.dest "#{paths.buildDir}/scripts"
 
 
