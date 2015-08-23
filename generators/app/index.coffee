@@ -1,8 +1,8 @@
+_s          = require 'underscore.string'
 path        = require 'path'
 chalk       = require 'chalk'
 yosay       = require 'yosay'
 generators  = require 'yeoman-generator'
-_s          = require 'underscore.string'
 
 module.exports = generators.Base.extend
 
