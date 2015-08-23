@@ -1,7 +1,7 @@
 {
   "name": "generator-phaser-coffeescript",
   "version": "0.1.0",
-  "description": "Yeoman generator",
+  "description": "A yeoman generator written in coffeescript for Phaser framework",
   "license": "MIT",
   "main": "app/index.js",
   "repository": "ozankasikci/generator-phaser-coffeescript",
@@ -17,7 +17,11 @@
     "generators"
   ],
   "keywords": [
-    "yeoman-generator"
+    "yeoman-generator",
+    "phaser",
+    "HTML5",
+    "game",
+    "coffee-script"
   ],
   "dependencies": {
     "chalk": "^1.0.0",
