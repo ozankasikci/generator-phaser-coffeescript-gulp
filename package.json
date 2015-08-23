@@ -1,6 +1,6 @@
 {
   "name": "generator-phaser-coffeescript-gulp",
-  "version": "0.1.0",
+  "version": "0.1.2",
   "description": "A yeoman generator written in coffeescript for Phaser framework",
   "license": "MIT",
   "main": "app/index.js",
@@ -29,14 +29,9 @@
     "gulp": "^3.9.0",
     "yeoman-generator": "0.20.1",
     "yosay": "^1.0.2",
-    "browser-sync": "^2.7.12",
-    "browserify": "^10.2.4",
-    "browserify-shim": "^3.8.8",
-    "coffeeify": "^1.1.0",
-    "del": "^1.2.0",
-    "mocha": "*",
-    "underscore.string": "^3.1.1",
-    "vinyl-buffer": "^1.0.0",
-    "vinyl-source-stream": "^1.1.0"
+    "underscore.string": "^3.1.1"
+  },
+  "devDependencies": {
+    "mocha": "*"
   }
 }
