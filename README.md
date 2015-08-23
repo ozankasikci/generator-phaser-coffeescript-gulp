@@ -29,7 +29,7 @@ To install generator-phaser-coffeescript from npm, run:
 npm install -g generator-phaser-coffeescript-gulp
 ```
 
-Finally, initiate the generator:
+Finally, create a directory and initiate the generator:
 
 ```bash
 yo phaser-coffeescript-gulp
