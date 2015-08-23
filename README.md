@@ -1,4 +1,4 @@
-# generator-phaser-coffeescript
+# generator-phaser-coffeescript-gulp
 
 > [Yeoman](http://yeoman.io) generator
 
@@ -26,13 +26,13 @@ Yeoman travels light. He didn't pack any generators when he moved in. You can th
 To install generator-phaser-coffeescript from npm, run:
 
 ```bash
-npm install -g generator-phaser-coffeescript
+npm install -g generator-phaser-coffeescript-gulp
 ```
 
 Finally, initiate the generator:
 
 ```bash
-yo phaser-coffeescript
+yo phaser-coffeescript-gulp
 ```
 
 ### Getting To Know Yeoman
