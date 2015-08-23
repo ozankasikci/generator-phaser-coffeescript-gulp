@@ -1,6 +1,6 @@
 {
   "name": "generator-phaser-coffeescript-gulp",
-  "version": "0.1.2",
+  "version": "0.1.3",
   "description": "A yeoman generator written in coffeescript for Phaser framework",
   "license": "MIT",
   "main": "app/index.js",
