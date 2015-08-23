@@ -1,23 +1,18 @@
-class Preloader
-
-  @asset = null
-  @ready = false
+class Preload
 
   preload: ->
-    @asset = @add.sprite(320, 240, 'preloader')
-    @asset.anchor.setTo 0.5, 0.5
-    @load.onLoadComplete.addOnce @onLoadComplete, this
-    @load.setPreloadSprite @asset
-    # @load.image 'player', 'assets/images/player.png'
-    # @load.bitmapFont 'minecraftia', 'assets/fonts/minecraftia.png', 'assets/fonts/minecraftia.xml'
+
+    loadingBar = @add.sprite(320, 240, 'preloader')
+    loadingBar.anchor.setTo 0.5, 0.5
+    @load.setPreloadSprite loadingBar
+
+    @game.load.image 'starBackground','assets/backgrounds/starfield.jpg', 138, 15
+    @game.load.image 'logo', 'assets/sprites/phaser2.png'
+
 
   create: ->
-    @asset.cropEnabled = false
 
-  # update: ->
-  #   @game.state.start 'menu' unless not @ready
+    @game.state.start 'menu'
 
-  onLoadComplete: ->
-    @ready = true
 
-module.exports = Preloader
+module.exports = Preload
