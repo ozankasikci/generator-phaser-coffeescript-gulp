@@ -1,6 +1,10 @@
 {
   "name": "<%= appName %>",
   "version": "0.0.0",
+  "description": "",
+  "repository": "",
+  "license": "",
+  "readme": "",
   "browserify": {
     "transform": [
       "browserify-shim"
@@ -13,11 +17,11 @@
     "phaser": "Phaser"
   },
   "dependencies": {
-    "chalk": "1.0.0",
-    "coffee-script": "^1.9.3",
-    "gulp": "^3.9.0"
   },
   "devDependencies": {
+    "chalk": "1.0.0",
+    "coffee-script": "^1.9.3",
+    "gulp": "^3.9.0",
     "browser-sync": "^2.7.12",
     "browserify": "^10.2.4",
     "browserify-shim": "^3.8.8",

@@ -1,5 +1,5 @@
 {
-  "name": "generator-phaser-coffeescript",
+  "name": "<%= appName %>",
   "version": "0.0.0",
   "dependencies": {
     "phaser-official": "<%= phaserVersion %>"

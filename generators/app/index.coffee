@@ -94,7 +94,7 @@ module.exports = generators.Base.extend
       @fs.copy @templatePath('bowerrc'),     @destinationPath('.bowerrc')
       @fs.copyTpl(
         @templatePath('_bower.json'), @destinationPath('bower.json'),
-        { phaserVersion : @props.phaserVersion }
+        { phaserVersion : @props.phaserVersion, appName : @props.appName }
       )
 
 
@@ -114,6 +114,6 @@ module.exports = generators.Base.extend
   end : ->
 
     @log chalk.green('Yeoman has completed his mission successfully!')
-    @log chalk.gray('Type `gulp` to start developing some awesome games!')
+    @log chalk.gray('Install gulp `npm i gulp -g` if needed and run `gulp` to start developing some awesome games!')
 
 
