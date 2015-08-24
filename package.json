@@ -1,7 +1,7 @@
 {
   "name": "generator-phaser-coffeescript-gulp",
   "version": "0.1.4",
-  "description": "A yeoman generator written in coffeescript for Phaser framework. Browserifies, coffeeifies and live reloads using browser-sync.",
+  "description": "A yeoman generator for developing games with Phaser framework using coffeescript. Browserifies, coffeeifies and live reloads using browser-sync.",
   "license": "MIT",
   "main": "app/index.js",
   "repository": "ozankasikci/generator-phaser-coffeescript-gulp",
