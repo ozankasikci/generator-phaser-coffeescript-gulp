@@ -18,17 +18,17 @@ Not every new computer comes with a Yeoman pre-installed. He lives in the [npm](
 
 ### Installation
 
-##### Install Yeoman
+##### Install Yeoman and Gulp
 
 ```bash
-npm install -g yo
+npm i -g yo gulp
 ```
 
 ##### Install phaser-coffeescript-gulp generator
 
 
 ```bash
-npm install -g generator-phaser-coffeescript-gulp
+npm i -g generator-phaser-coffeescript-gulp
 ```
 
 ##### Initiate generator in a directory
