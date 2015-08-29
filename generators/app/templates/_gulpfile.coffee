@@ -30,19 +30,21 @@ gulp.task 'clean', (cb) ->
 
 gulp.task 'watchChanges', ->
 
+  bs = browserSync.create()
+
   deleteFileFromBuildDir = (event, path) ->
-    return  unless event is 'deleted'
+    return  unless event is 'unlink' or event is 'unlinkDir'
     # replacing app folder with build
-    path = path.replace '/app/', '/build/'
+    path = path.replace 'app/', 'build/'
     # deleting the file from build directory
     del [path], ->
 
 
   watchFiles = (path, gulpTask) ->
 
-    gulp.watch [path], (file) ->
+    bs.watch path, (event, file) ->
       gulp.start gulpTask
-      deleteFileFromBuildDir file.type, file.path
+      deleteFileFromBuildDir event, file
 
   watchFiles "#{paths.appAssets}/**",           'copyAssets'
   watchFiles "#{paths.appStyles}/**",           'copyStyles'
