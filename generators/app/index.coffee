@@ -75,7 +75,7 @@ module.exports = generators.Base.extend
 
       @fs.copyTpl(
         @templatePath('styles/style.css'), @destinationPath('app/styles/style.css'),
-        { centerApp : @props.centerApp, appWidth : @props.appWidth }
+        { centerApp : @props.centerApp, appWidth : @props.appWidth, appHeight : @props.appHeight }
       )
 
       @fs.copy @templatePath('assets/**'),                     @destinationPath('app/assets')
