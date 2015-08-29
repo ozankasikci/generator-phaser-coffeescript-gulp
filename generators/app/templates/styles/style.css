@@ -14,6 +14,7 @@ html, body {
 #game-content {
   <% if(centerApp){ %>
   margin: 20px auto;
-  width: <%= appWidth %>px;
   <% } %>
+  width: <%= appWidth %>px;
+  height: <%= appHeight %>px;
 }
