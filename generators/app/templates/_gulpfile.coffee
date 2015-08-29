@@ -1,6 +1,5 @@
 del            = require 'del'
 gulp           = require 'gulp'
-watch          = require 'gulp-watch'
 source         = require 'vinyl-source-stream'
 buffer         = require 'vinyl-buffer'
 plugins        = require('gulp-load-plugins')()
