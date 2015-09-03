@@ -19,7 +19,7 @@ module.exports = generators.Base.extend
     done = @async()
 
     @log yosay(
-      "Welcome to the amazing #{chalk.green('Phaser-Coffeescript')} generator!"
+      "Welcome to the amazing #{chalk.green('Phaser-Coffeescript-Gulp')} generator!"
     )
 
     @prompt [
