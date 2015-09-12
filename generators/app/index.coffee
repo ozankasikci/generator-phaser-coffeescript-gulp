@@ -8,6 +8,10 @@ module.exports = generators.Base.extend
 
   initializing : ->
 
+    @log yosay(
+      "Welcome to the amazing #{chalk.green('Phaser-Coffeescript-Gulp')} generator!"
+    )
+
 
   install : ->
 
@@ -17,10 +21,6 @@ module.exports = generators.Base.extend
   prompting : ->
 
     done = @async()
-
-    @log yosay(
-      "Welcome to the amazing #{chalk.green('Phaser-Coffeescript-Gulp')} generator!"
-    )
 
     @prompt [
       {
