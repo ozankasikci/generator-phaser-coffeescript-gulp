@@ -13,6 +13,7 @@ paths =
   appStyles    : 'app/styles'
   appAssets    : 'app/assets'
   appScripts   : 'app/scripts'
+  appPrefabDir : 'app/prefab'
 
   buildDir     : 'build'
   buildLib     : 'build/lib'
@@ -45,10 +46,11 @@ gulp.task 'watchChanges', ->
       gulp.start gulpTask
       deleteFileFromBuildDir event, file
 
-  watchFiles "#{paths.appAssets}/**",           'copyAssets'
-  watchFiles "#{paths.appStyles}/**",           'copyStyles'
-  watchFiles "#{paths.appDir}/**/*.html",       'copyHtml'
-  watchFiles "#{paths.appScripts}/**/*.coffee", 'coffeeify'
+  watchFiles "#{paths.appAssets}/**",             'copyAssets'
+  watchFiles "#{paths.appStyles}/**",             'copyStyles'
+  watchFiles "#{paths.appDir}/**/*.html",         'copyHtml'
+  watchFiles "#{paths.appScripts}/**/*.coffee",   'coffeeify'
+  watchFiles "#{paths.appPrefabDir}/**/*.coffee", 'coffeeify'
 
 
 gulp.task 'copyHtml', ->
