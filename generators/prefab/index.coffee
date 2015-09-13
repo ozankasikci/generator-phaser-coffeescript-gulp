@@ -13,7 +13,7 @@ module.exports = generators.NamedBase.extend
 
   prompting : ->
 
-    prefabTypesWithSpriteKey = ['Sprite', 'TileSprite', 'Emitter']
+    prefabTypesWithSpriteKey = ['Sprite', 'TileSprite', 'Emitter', 'Button']
 
     done = @async()
 
@@ -22,7 +22,7 @@ module.exports = generators.NamedBase.extend
         type    : 'list'
         name    : 'prefabType'
         message : 'What type of prefab would you like to create?'
-        choices : ['Sprite', 'TileSprite', 'Group', 'Text', 'Emitter', 'BitmapData']
+        choices : ['Sprite', 'TileSprite', 'Group', 'Text', 'Button', 'Emitter', 'BitmapData']
         default : 0
       }
       {
@@ -48,6 +48,7 @@ module.exports = generators.NamedBase.extend
       templates =
         'Text'       : '_prefabText.coffee'
         'Group'      : '_prefabGroup.coffee'
+        'Button'     : '_prefabButton.coffee'
         'Sprite'     : '_prefabSprite.coffee'
         'Emitter'    : '_prefabEmitter.coffee'
         'TileSprite' : '_prefabTileSprite.coffee'
