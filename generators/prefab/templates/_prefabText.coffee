@@ -5,5 +5,3 @@ module.exports = class <%= prefabClassName %> extends Phaser.Text
     super game, x, y, text, style
     @game.add.existing this
 
-
-  update : ->
