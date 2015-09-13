@@ -4,5 +4,3 @@ module.exports = class <%= prefabClassName %> extends Phaser.Group
 
     super game
 
-
-  update : ->
