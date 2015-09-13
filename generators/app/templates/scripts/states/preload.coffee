@@ -2,7 +2,7 @@ class Preload
 
   preload: ->
 
-    loadingBar = @add.sprite(320, 240, 'preloader')
+    loadingBar = @add.sprite 320, 240, 'preloader'
     loadingBar.anchor.setTo 0.5, 0.5
     @load.setPreloadSprite loadingBar
 

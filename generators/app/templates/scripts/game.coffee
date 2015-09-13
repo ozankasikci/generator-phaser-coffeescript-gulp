@@ -10,12 +10,12 @@ class Game extends Phaser.Game
 
     super <%= width %>, <%= height %>, Phaser.AUTO, 'game-content'
 
-    @state.add('boot', Boot)
-    @state.add('preload', Preload)
-    @state.add('menu', Menu)
-    @state.add('main', Main)
+    @state.add 'boot', Boot
+    @state.add 'preload', Preload
+    @state.add 'menu', Menu
+    @state.add 'main', Main
 
-    @state.start('boot')
+    @state.start 'boot'
 
 
 window.onload = ->
