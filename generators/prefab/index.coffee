@@ -22,7 +22,7 @@ module.exports = generators.NamedBase.extend
         type    : 'list'
         name    : 'prefabType'
         message : 'What type of prefab would you like to create?'
-        choices : ['Sprite', 'TileSprite', 'Group', 'Text', 'Button', 'Emitter', 'BitmapData']
+        choices : ['Text', 'Group', 'Sprite', 'Button', 'Emitter', 'TileSprite', 'BitmapData']
         default : 0
       }
       {
