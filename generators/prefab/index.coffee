@@ -64,6 +64,6 @@ module.exports = generators.NamedBase.extend
 
     @log chalk.yellow("File name is: #{@name}.coffee")
     @log chalk.yellow("Class name is: #{@props.prefabClassName}")
-    @log chalk.green('Created a new prefab successfully!')
+    @log chalk.green("Created a new #{@props.prefabType} prefab successfully!")
 
 
