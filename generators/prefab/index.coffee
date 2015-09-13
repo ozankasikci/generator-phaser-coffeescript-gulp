@@ -55,7 +55,7 @@ module.exports = generators.NamedBase.extend
         'BitmapData' : '_prefabBitmapData.coffee'
 
       @fs.copyTpl(
-        @templatePath(templates[@props.prefabType]), @destinationPath("app/prefab/#{@name}.coffee"),
+        @templatePath(templates[@props.prefabType]), @destinationPath("app/scripts/prefabs/#{@name}.coffee"),
         { prefabSpriteKey : @props.prefabSpriteKey, prefabClassName : @props.prefabClassName }
       )
 
