@@ -42,8 +42,21 @@ yo phaser-coffeescript-gulp
 Once the generator is initiated you are ready to run `gulp` command.
 Gulp will start a web server with live-reload support using [Browser-Sync](https://github.com/Browsersync/browser-sync), compile and merge coffee files.
 
+![Gulp Demo](http://g.recordit.co/AmblNXxmN0.gif)
+
 And you are ready to start developing awesome games right away!
 
+### Prefab Generator
+
+To generate a prefab run `yo phaser-coffeescript-gulp:prefab prefabname`. You will then see the prefab choices:
+
+![Prefab Demo](http://g.recordit.co/Yt7g7tG52m.gif)
+
+### State Generator
+
+To generate a state run `yo phaser-coffeescript-gulp:state statename`.
+
+![State Demo](http://g.recordit.co/YmGLbBKSUO.gif)
 
 ## License
 
