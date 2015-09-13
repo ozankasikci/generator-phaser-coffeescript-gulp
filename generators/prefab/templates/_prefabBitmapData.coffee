@@ -6,9 +6,4 @@ module.exports = class <%= prefabClassName %> extends Phaser.BitmapData
     super game, key, width, height
 
 
-  create : ->
-
-    @game.add.existing this
-
-
   update : ->
