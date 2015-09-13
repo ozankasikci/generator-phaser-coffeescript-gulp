@@ -13,40 +13,32 @@ module.exports = generators.NamedBase.extend
 
   prompting : ->
 
-    spriteKeyRequired       = no
     prefabTypesWithSpriteKey = ['Sprite', 'TileSprite', 'Emitter']
 
     done = @async()
 
     @prompt [
       {
-        type: 'list'
-        name: 'prefabType'
-        message: 'What type of prefab would you like to create?'
+        type    : 'list'
+        name    : 'prefabType'
+        message : 'What type of prefab would you like to create?'
         choices : ['Sprite', 'TileSprite', 'Group', 'Text', 'Emitter', 'BitmapData']
         default : 0
       }
+      {
+        when     : (props) -> props.prefabType in prefabTypesWithSpriteKey
+        type     : 'input'
+        name     : 'prefabSpriteKey'
+        message  : "What is your prefab's sprite key?"
+        validate : (input) ->
+          return 'You must enter a sprite key' unless input
+          return true
+      }
     ], (props) =>
       @props                 = props
-      @prefabType            = props.prefabType
       @props.prefabClassName = _s.classify @name
-
-      # return if we don't need a sprite key in prefab
-      return done()  unless @spriteKeyRequired = @prefabType in prefabTypesWithSpriteKey
-
-      # prompt again for sprite key
-      @prompt [
-        {
-          type: 'input'
-          name: 'prefabSpriteKey'
-          message: "What is your prefab's sprite key?"
-          validate : (input) ->
-            return 'You must enter a sprite key' unless input
-            return true
-        }
-      ], (props) =>
-        @props.prefabSpriteKey = _s.slugify props.prefabSpriteKey
-        done()
+      @props.prefabSpriteKey = _s.slugify props.prefabSpriteKey
+      done()
 
 
   writing :
@@ -62,7 +54,7 @@ module.exports = generators.NamedBase.extend
         'BitmapData' : '_prefabBitmapData.coffee'
 
       @fs.copyTpl(
-        @templatePath(templates[@prefabType]), @destinationPath("app/prefab/#{@name}.coffee"),
+        @templatePath(templates[@props.prefabType]), @destinationPath("app/prefab/#{@name}.coffee"),
         { prefabSpriteKey : @props.prefabSpriteKey, prefabClassName : @props.prefabClassName }
       )
 
