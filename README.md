@@ -48,9 +48,11 @@ And you are ready to start developing awesome games right away!
 
 ### Prefab Generator
 
-To generate a prefab run `yo phaser-coffeescript-gulp:prefab prefabname`. You will then see the prefab choices:
+To generate a prefab run `yo phaser-coffeescript-gulp:prefab prefabname`. You will see the prefab choices:
 
 ![Prefab Demo](http://g.recordit.co/Yt7g7tG52m.gif)
+
+Then you can require your newly generated prefab in a state file.
 
 ### State Generator
 
