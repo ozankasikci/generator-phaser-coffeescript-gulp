@@ -1,8 +1,8 @@
 module.exports = class <%= prefabClassName %> extends Phaser.Button
 
-  constructor : (game, x, y, key = null) ->
+  constructor : (game, x, y) ->
 
-    super game, x, y, key, @actionOnClick
+    super game, x, y, '<%= prefabSpriteKey %>', @actionOnClick
 
 
   update : ->
