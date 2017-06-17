@@ -11,7 +11,7 @@
     ]
   },
   "browser": {
-    "phaser": "./app/lib/phaser-official/build/phaser.min.js"
+    "phaser": "./app/lib/phaser-ce/build/phaser.min.js"
   },
   "browserify-shim": {
     "phaser": "Phaser"
