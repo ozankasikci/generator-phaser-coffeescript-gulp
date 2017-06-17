@@ -33,7 +33,7 @@ module.exports = generators.Base.extend
         type: 'input'
         name: 'phaserVersion'
         message: 'Which Phaser version do you want to use?'
-        default : '^2.4.2'
+        default : '^2.8.0'
       }
       {
         type: 'input'
