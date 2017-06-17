@@ -34,6 +34,8 @@ npm i -g generator-phaser-coffeescript-gulp
 ##### Initiate generator in a directory
 
 ```bash
+mkdir my-game
+cd $_
 yo phaser-coffeescript-gulp
 ```
 
