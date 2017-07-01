@@ -1,8 +1,0 @@
-{
-  "name": "<%= appName %>",
-  "version": "0.0.0",
-  "dependencies": {
-    "phaser-ce": "<%= phaserVersion %>"
-  }
-}
-
