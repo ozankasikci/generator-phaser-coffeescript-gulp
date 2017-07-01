@@ -11,7 +11,7 @@
     ]
   },
   "browser": {
-    "phaser": "./app/lib/phaser-ce/build/phaser.min.js"
+    "phaser": "./node_modules/phaser-ce/build/phaser.min.js"
   },
   "browserify-shim": {
     "phaser": "Phaser"
@@ -19,6 +19,7 @@
   "dependencies": {
   },
   "devDependencies": {
+    "phaser-ce": "<%= phaserVersion %>",
     "chalk": "1.0.0",
     "coffee-script": "^1.9.3",
     "gulp": "^3.9.0",
