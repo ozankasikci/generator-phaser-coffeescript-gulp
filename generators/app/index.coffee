@@ -94,7 +94,7 @@ module.exports = generators.Base.extend
 
       @fs.copyTpl(
         @templatePath('_package.json'), @destinationPath('package.json'),
-        { appName : @props.appName }
+        { appName : @props.appName, phaserVersion: @props.phaserVersion }
       )
 
 
